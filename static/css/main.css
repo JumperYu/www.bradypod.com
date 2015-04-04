@@ -378,7 +378,7 @@ footer.off ~ #quickdial > #quick_dial_tabpanels > #grid > ol {
   border: 1px #d8d8d8 solid;
   box-sizing: border-box;
   float: left;
-  height: 25px;
+  height: 161px;
   margin: 10px;
   position: relative;
   width: -moz-calc((100% - 80px) / 4);
