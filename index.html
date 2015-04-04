@@ -11,6 +11,7 @@
   <script src="/static/js/main.js" type="application/javascript;"></script>
 <!--   <link href="favicon.ico" type="image/ico" rel="icon">
   <link href="favicon.ico" type="image/ico" rel="shortcut icon"> -->
+
 </head>
 
 <body>
@@ -48,7 +49,7 @@
             <li data-direction="1">Down</li>
           </ul>
         <ol>
-          <li draggable="true" data-index="2" data-fid="2" title="树懒博客">
+          <li id="d1" draggable="true" data-index="1" data-fid="1" title="树懒博客">
             <button title="编辑"></button>
             <button title="刷新"></button>
             <button title="删除"></button>
@@ -58,7 +59,7 @@
             <span class="title">树懒博客</span>
             </a>
           </li>
-          <li draggable="true" data-index="2" data-fid="2" title="树懒商城">
+          <li id="d2" draggable="true" data-index="2" data-fid="2" title="树懒商城">
             <button title="编辑"></button>
             <button title="刷新"></button>
             <button title="删除"></button>
@@ -70,8 +71,8 @@
           </li>
        </ol>
       </div>
-        <div id="site">
-          <div class="top-flex"></div>
+      <div id="site">
+        <div class="top-flex"></div>
           <iframe src=""></iframe>
         </div>
         <div id="p1411">
@@ -81,6 +82,28 @@
         </div>
       </div>
     </section>
+    <script type="text/javascript">
+    (function(){
+      var d1 = document.getElementById("d1");
+      var d2 = document.getElementById("d2");
+      d1.ondragstart = function(evt){
+        evt.dataTransfer.setData("text/plain", "haha");
+      }
+      d2.ondragstart = function(evt){
+        evt.dataTransfer.setData("text/plain", "haha");
+      }
+      document.ondragover = function(evt){
+        return false;
+      }
+      document.ondrop = function(evt){
+        console.log(evt.pageX + "," + evt.pageY);
+        d1.style.position = "absolute";
+        d1.style.left = evt.pageX + "px";
+        d1.style.top = evt.pageY + "px";
+        return false;
+      }
+    })();
+    </script>
 <!-- 
     <footer>
       <p>&copy; 2014-2016 <a href="/" target="_blank" title="89后，工作在广州；Java程序员">bradypod's site</a>.
